@@ -1,0 +1,14 @@
+<h2>Enviar Pedido<h2>
+
+<form #formOrden="ngForm">
+  <fieldset>
+
+    <input type="text" name="fono" #name="ngModel" [(ngModel)]="ordenDelivery._cliente._fono" required /><br>
+
+    <input type="text" name="direccion" #name="ngModel" [(ngModel)]="ordenDelivery._direccion.normalizada" required /><br>
+
+    <input type="text" name="descripcion" #name="ngModel" [(ngModel)]="ordenDelivery._orden.descripcion" required /><br>
+
+    <input type="submit" value="Guardar"/>
+  </fieldset>
+</form>

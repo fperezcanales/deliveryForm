@@ -1,0 +1,21 @@
+  <input type="text" [(ngModel)]= "estadoSeleccionado" >
+  <table>
+    <tr>
+      <td>{{ estadoSeleccionado }}</td>
+      <td>{{ordenDelivery._cliente._nombre}}</td>
+      <td>{{ordenDelivery._cliente._fono}}</td>
+
+      <!--td>{{ordenDelivery._orden.fch_registro}}</td-->
+      <td>{{ordenDelivery._orden.descripcion}}</td>
+
+      <td>{{ordenDelivery._direccion.normalizada}}</td>
+      <td>{{ordenDelivery._direccion.comuna}}</td>
+
+    </tr>
+  </table>
+
+  <ul> hola
+    <li *ngFor="let item of pedidosHoy">
+      {{item.title}}
+    </li>
+  </ul>

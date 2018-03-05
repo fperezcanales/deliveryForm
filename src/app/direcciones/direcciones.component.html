@@ -1,0 +1,18 @@
+
+  <!--table>
+    <tr>
+      <td>{{normalizada}}</td>
+      <td>{{comuna}}</td>
+      <td>{{pais}}</td>
+    </tr>
+  </table-->
+
+  <h2>Firebase: </h2>
+  <ul>
+    <li class="text" *ngFor="let item of items | async">
+      {{item.cliente }} -
+      {{item.direccion }} -
+      {{item.precio }} -
+      {{item.fono }}
+    </li>
+  </ul>

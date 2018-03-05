@@ -1,0 +1,48 @@
+<h4>
+  <p class="text-center">{{titulo}}</p>
+</h4>
+
+<!--
+  public cliente: string,
+  public direccion: string,
+  public descripcion: string
+-->
+<form #formPedidoAdd="ngForm" id="formPedido" class="form-horizontal"
+      (ngSubmit)="onSubmit()">
+
+  <label>Nombre Cliente</label>
+  <input type="text" class="form-control" name="cliente" #cliente="ngModel" style="height: 30px"
+        [(ngModel)]="pedido.cliente" required/>
+
+  <span *ngIf="!cliente.valid && cliente.touched">Cliente es obligatorio</span><br>
+
+  <label>Fono Cliente</label>
+  <input type="text" class="form-control" name="fono" #fono="ngModel" style="height: 30px"
+        [(ngModel)]="pedido.fono" required/>
+
+  <span *ngIf="!fono.valid && fono.touched">Fono es obligatorio</span><br>
+
+
+  <label>Direccion</label>
+  <input type="text" class="form-control" name="direccion" #direccion="ngModel" style="height: 30px"
+        [(ngModel)]="pedido.direccion" required/>
+
+  <span *ngIf="!direccion.valid && direccion.touched" class="label">Direccion es obligatorio</span><br>
+
+  <label>Descripcion</label>
+  <input type="text" class="form-control" name="descripcion" #descripcion="ngModel" style="height: 30px"
+        [(ngModel)]="pedido.descripcion" required/>
+
+  <span *ngIf="!descripcion.valid && descripcion.touched">Descripcion es obligatorio</span><br>
+
+  <label>Total</label>
+  <input type="text" class="form-control" name="total" #total="ngModel" style="height: 30px"
+        [(ngModel)]="pedido.total" required pattern="[0-9]+"/>
+
+  <span *ngIf="!total.valid && total.touched">Total es obligatorio</span><br>
+
+  <br/>
+  <input type="submit" value={{titulo}} class="btn btn-success"
+          [disabled]="!formPedidoAdd.form.valid"/>
+
+</form>

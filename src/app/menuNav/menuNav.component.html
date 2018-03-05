@@ -1,0 +1,17 @@
+<h2>
+  <p class="text-center">{{titulo}}</p>
+</h2>
+
+<!--nav class="navbar navbar-default"-->
+<div class="btn-group">
+  <!--a [routerLink]="['/']" > / </a>
+  <a [routerLink]="['/direcciones']" > direcciones </a>
+  <a [routerLink]="['/enviarPedido']"> enviarPedido </a-->
+
+  <button class="btn"> <a [routerLink]="['/crear-pedido']"> Nuevo </a></button>
+  <button class="btn" >  <a [routerLink]="['/clientes']"> Pendientes </a></button>
+  <button class="btn" >  <a [routerLink]="['/clientes']"> Por Entregar </a></button>
+  <button class="btn" >  <a [routerLink]="['/clientes']"> Entregados </a></button>
+
+</div>
+<!--/nav-->
