@@ -35,7 +35,7 @@ export class PedidoService {
 
   addPedido(pedido: Pedido )
   {
-    pedido.estado = 1: // por defecto
+    pedido.estado = 1; // por defecto
 
     this.itemsRef.push(   pedido ).then((item) => {
                    alert('  added successfully');
