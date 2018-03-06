@@ -4,13 +4,12 @@ import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector : 'cliente',
-  templateUrl : './cliente.component.html'
-
+  selector : 'entregarPedido',
+  templateUrl : './entregarPedido.component.html'
 })
 
-export class ClienteComponent{
-  public titulo = 'Pendientes';
+export class EntregarPedidoComponent{
+  public titulo = 'Listos para entrega';
   public cliente_nombre = 'fernando';
   public cliente_fono = '987654321';
   private _idEstado:number;
@@ -30,11 +29,10 @@ export class ClienteComponent{
     // Se ejecuta despues del constructor, podria llamar una fcc ajax
     this.sub = this._route.params.subscribe(params => {
       this._idEstado=  params['idEstado'];
-
       this.items = this._af.list('/pedidos' , {
                       query: {
                         orderByChild: 'estado',
-                        equalTo: 1 // this._idEstado //this._estadoId
+                        equalTo: 2 // this._idEstado //this._estadoId
                       }});
     });
 

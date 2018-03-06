@@ -14,22 +14,28 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class PedidoEditComponent{
   public titulo: string;
   public pedido: Pedido;
-
+  private _idPedido ;
   constructor(//private _pedidoEditService: PedidoEditService,
               private _pedidoEditService: PeticionesService,
               private _route: ActivatedRoute,
               private _router: Router)
   {
-    console.log( this._route.snapshot.queryParams["idPedido"] );
-    let idPedido = this._route.snapshot.queryParams["idPedido"];
-    this.titulo = 'Servicio Editar Pedido';
-    this.pedido = new Pedido(0,"","","",0);
-    this.pedido.id = idPedido;
+
+    this.sub = this._route.params.subscribe(params => {
+      //console.log( params['idPedido'] );
+      this.titulo = 'Servicio Editar Pedido';
+      this.pedido = new Pedido(0,"","","",0);
+      alert(params['idPedido']);
+      this.pedido.id =  params['idPedido'];
+
+    });
+
+
   }
 
   ngOnInit()
   {
-     console.log( "Servicio ngOnInit()"+this.pedido.id):  
+     console.log("ngOnInit "+ this.pedido.id );
      this._pedidoEditService.getPedidoById(this.pedido.id)
                     .subscribe(val => {
                         this.pedido.cliente = val.cliente;

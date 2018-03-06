@@ -1,14 +1,48 @@
-<h2>Enviar Pedido<h2>
+<h4>
+  <p class="text-center">{{titulo}}</p>
+</h4>
+  <!--h2>{{cliente_nombre}}</h2>
+  <p>{{cliente_fono}} {{cliente_fecha_registro}}</p   | async -->
 
-<form #formOrden="ngForm">
-  <fieldset>
+  <div *ngIf="!items">
+      <p>Cargando ...</p>
+  </div>
+  <div *ngIf="items">
+        <div *ngFor="let item of items | async"  style="width:100%">
+            <!--label style="width:5%"> {{item.proceso }} </label-->
 
-    <input type="text" name="fono" #name="ngModel" [(ngModel)]="ordenDelivery._cliente._fono" required /><br>
+            <p style="margin-top: 25px;">{{item.$key}}</p>
 
-    <input type="text" name="direccion" #name="ngModel" [(ngModel)]="ordenDelivery._direccion.normalizada" required /><br>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th> <span style="" class="label label-info">Cliente  </span> </th>
 
-    <input type="text" name="descripcion" #name="ngModel" [(ngModel)]="ordenDelivery._orden.descripcion" required /><br>
+                  <th  colspan="2">  {{item.cliente }} - <i class="fab fa-whatsapp"></i>
+                    {{item.fono }} - Estado  {{item.estado }}
+                    <span class="label label-success" style="float: right;">  L  </span>
+                  </th>
 
-    <input type="submit" value="Guardar"/>
-  </fieldset>
-</form>
+                </tr>
+              </thead>
+               <tr>
+                 <td style="width:5%"><a style="width:5%" [routerLink]="['/pedido-edit', item.$key ]"> <i class="icon-pencil"></i> </a></td>
+                 <td colspan="2">
+                   {{item.descripcion }} {{item.descripcion }}</td>
+               </tr>
+                <tr>
+                  <td style="width:5%"></td>
+                  <td colspan="2">
+                     <div>
+                       <strong>$   {{item.precio }}  {{item.total }} </strong>  <br>
+                       <span class="icon icon-user"></span> {{ item.fechaActualizacion | date :'shortTime' }}<br>
+                       <span class="icon icon-home"></span> {{item.direccion }}
+                     </div>
+                 </td>
+               </tr>
+            </table>
+            <!-- <div>  {{item.descripcion }} <i class="icon-pencil"></i> </div> -->
+            <!--span class="label">Default</span>
+            <span class="label label-inverse">Inverse</span-->
+        </div>
+  </div>

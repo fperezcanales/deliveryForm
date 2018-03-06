@@ -12,7 +12,7 @@ export class PeticionesService {
   private _pedido: Pedido;
 
   constructor(private _http: HttpClient){
-    this.url = 'https://deliveryform-c007a.firebaseio.com/pedidos/-L2H3sRpv5ls9PDBits6.json'
+    this.url = 'https://deliveryform-c007a.firebaseio.com/pedidos/';
   }
 
   getPrueba(){
@@ -40,20 +40,20 @@ export class PeticionesService {
   }
 
   getPedidoById( id )
-  {   console.log( "getPedidoById "+  id );
-      return this._http.get(this.url)
+  {
+      return this._http.get( this.url + id + '.json' )
                 .map( res => res );
   }
 
   getPedidoEspecifico(id ){
-         console.log( "getPedidoEspecifico "+  id );
-                return this._http.get(this.url)
-                        .map(data => {
-                            return data;
-                    });
-   );
+      //   console.log( "getPedidoEspecifico "+  id );
 
-    return this._pedido ;
+        return this._http.get(this.url)
+                         .map(data => {
+                            return data;
+                          });
+
+    //return this._pedido ;
   }
 
   getPedidosHoy(){

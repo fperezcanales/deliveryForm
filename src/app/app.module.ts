@@ -7,6 +7,7 @@ import { HttpModule } from "@angular/http";
 import { HttpClientModule} from '@angular/common/http';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 // for AngularFireDatabase
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
@@ -21,6 +22,7 @@ import { AppComponent } from './app.component';
 import { MenuNavComponent }  from './menuNav/menuNav.component';
 import { HomeComponent }  from './home/home.component';
 import { EnviarPedidoComponent }  from './ordenDelivery/enviarPedido/enviarPedido.component';
+import { EntregarPedidoComponent }  from './ordenDelivery/entregarPedidos/entregarPedido.component';
 import { PeticionesService } from './service/peticiones.service';
 import { ClienteComponent }  from './clientes/cliente.component';
 import { DireccionesComponent }  from './direcciones/direcciones.component';
@@ -35,7 +37,7 @@ import { PedidoEditService } from './services/pedidoEdit.service';
 @NgModule({
   declarations: [
     AppComponent, MenuNavComponent, HomeComponent,
-                    EnviarPedidoComponent ,
+                    EnviarPedidoComponent , EntregarPedidoComponent,
                     ClienteComponent, DireccionesComponent, OrdenDeliveryComponent,
                     PedidoAddComponent, PedidoEditComponent
   ],
@@ -43,6 +45,7 @@ import { PedidoEditService } from './services/pedidoEdit.service';
     BrowserModule, FormsModule, routing, HttpModule, HttpClientModule
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireModule,
+    AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
   ],
