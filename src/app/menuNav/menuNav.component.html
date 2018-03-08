@@ -13,15 +13,16 @@
   <button class="btn btn-primary" >  <a [routerLink]="['/clientes']" style="color: white;"> Pendientes </a></button>
   <button class="btn btn-primary" >  <a [routerLink]="['/listos/2']" style="color: white;"> Listos </a></button>
   <button class="btn btn-primary" >  <a [routerLink]="['/entregados/3']" style="color: white;"> Entregados </a></button>
-  <button class="btn btn-primary"> <i class="fa fa-search">  Buscar </i></button>
-  <button class="btn btn-primary"> <i class="icon icon-user">  </i></button>
+  <!--button class="btn btn-primary"> <i class="fa fa-search">  Buscar </i></button>
+  <button class="btn btn-primary"> <i class="icon icon-user">  </i></button-->
 
 </div>
 
 
 <!--/nav-->
 <script>
-$(".btn-group > .btn").click(function(){
-    $(this).addClass("active").siblings().removeClass("active");
+$(".btn").click(function(){
+    $(".btn").removeClass("active");
+    $(this).addClass("active") ;//.siblings().removeClass("active");
 });
 </script>

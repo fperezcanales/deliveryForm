@@ -32,7 +32,7 @@ export class PedidoEditComponent{
   ngOnInit()
   {
      console.log("ngOnInit "+ this.pedido.id );
-     /*this._pedidoEditService.getPedidoById(this.pedido.id)
+     this._pedidoEditService.getPedidoById(this.pedido.id)
                     .subscribe(val => {
                         console.log(val);
                         this.pedido.cliente = val.cliente;
@@ -40,7 +40,7 @@ export class PedidoEditComponent{
                         this.pedido.descripcion = val.descripcion;
                         this.pedido.total = val.total;
                         this.pedido.fono = val.fono;
-                    });*/
+                    });
   }
 
   onSubmit () {

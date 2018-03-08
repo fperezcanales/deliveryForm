@@ -24,12 +24,12 @@ export class PeticionesService {
   {   const sequence$ = this._http.get(
               'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' )
           .switchMap(course => {
-            /*course.cliente = body.cliente ;
+            course.cliente = body.cliente ;
             course.descripcion = body.descripcion ;
             course.direccion = body.direccion ;
             course.fono = body.fono ;
             course.total = body.total;
-            console.log(course);*/
+            console.log(course);
               return this._http.put(
                   'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' ,
                   course)
