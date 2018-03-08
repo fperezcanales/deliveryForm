@@ -26,4 +26,10 @@ export class PedidoAddComponent{
   ngOnInit(){
     console.log('pedidio-add cargado...');
   }
+  onSubmit () {
+      ///let idPedido = this._route.snapshot.queryParams["idPedido"];
+      console.log( "Servicio Editar .update()" + this.pedido.id);
+      this._pedidoService.addPedido(this.pedido);
+      this._router.navigate(['/clientes']);
+  }
 }

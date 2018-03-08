@@ -20,7 +20,10 @@
 
                   <th  colspan="2">  {{item.cliente }} - <i class="fab fa-whatsapp"></i>
                     {{item.fono }} - Estado  {{item.estado }}
-                    <span class="label label-success" style="float: right;">  L  </span>
+                    <span class="label label-success" style="float: right;">
+
+                    </span>
+                    <a style="width:5%" [routerLink]="['/pedido-listo', item.$key ]">Listo</a>
                   </th>
 
                 </tr>

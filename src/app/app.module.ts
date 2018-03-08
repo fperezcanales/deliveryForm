@@ -31,6 +31,7 @@ import { OrdenDeliveryComponent }  from './ordenDelivery/ordenDelivery.component
 //Importar Nuevos Componentes
 import { PedidoAddComponent } from './components/pedido-add.component';
 import { PedidoEditComponent } from './components/pedido-edit.component';
+import { PedidoListoComponent } from './components/pedido-listo.component';
 import { PedidoService } from './services/pedido.service';
 import { PedidoEditService } from './services/pedidoEdit.service';
 
@@ -39,10 +40,10 @@ import { PedidoEditService } from './services/pedidoEdit.service';
     AppComponent, MenuNavComponent, HomeComponent,
                     EnviarPedidoComponent , EntregarPedidoComponent,
                     ClienteComponent, DireccionesComponent, OrdenDeliveryComponent,
-                    PedidoAddComponent, PedidoEditComponent
+                    PedidoAddComponent, PedidoEditComponent, PedidoListoComponent
   ],
   imports: [
-    BrowserModule, FormsModule, routing, HttpModule, HttpClientModule
+    BrowserModule, FormsModule, routing, HttpModule, HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireModule,
     AngularFirestoreModule,

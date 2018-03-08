@@ -7,11 +7,11 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
-  selector : 'pedido-edit',
-  templateUrl : '../views/pedido-add.html'
+  selector : 'pedido-listo', // TODO: CREA PAGINA
+  templateUrl : '../views/pedido-listo.html'
 })
 
-export class PedidoEditComponent{
+export class PedidoListoComponent{
   public titulo: string;
   public pedido: Pedido;
   private _idPedido ;
@@ -23,7 +23,7 @@ export class PedidoEditComponent{
 
     this.sub = this._route.params.subscribe(params => {
       //console.log( params['idPedido'] );
-      this.titulo = 'Servicio Editar Pedido';
+      this.titulo = 'ENVIO';
       this.pedido = new Pedido(0,"","","",0);
       alert(params['idPedido']);
       this.pedido.id =  params['idPedido'];
@@ -35,7 +35,6 @@ export class PedidoEditComponent{
 
   ngOnInit()
   {
-     console.log("ngOnInit "+ this.pedido.id );
      this._pedidoEditService.getPedidoById(this.pedido.id)
                     .subscribe(val => {
                         this.pedido.cliente = val.cliente;

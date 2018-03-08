@@ -21,8 +21,6 @@ export class PeticionesService {
 
   update( body , idPedido )
   {
-    console.log( 'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' );
-
     const req = this._http.put( 'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' , {
       cliente: body.cliente ,
       descripcion: body.descripcion ,
@@ -39,6 +37,22 @@ export class PeticionesService {
       );
   }
 
+  updateEstado2(  idPedido )
+  {   const sequence$ = this._http.get(
+          'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' )
+      .switchMap(course => {
+          course.estado = 2;
+          return this._http.put(
+              'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' ,
+              course)
+      });
+      sequence$.subscribe(res => {
+            console.log(res);
+          },err => {
+            console.log( err );
+          });
+  }
+
   getPedidoById( id )
   {
       return this._http.get( this.url + id + '.json' )
@@ -46,20 +60,15 @@ export class PeticionesService {
   }
 
   getPedidoEspecifico(id ){
-      //   console.log( "getPedidoEspecifico "+  id );
-
-        return this._http.get(this.url)
+      return this._http.get(this.url)
                          .map(data => {
                             return data;
                           });
-
-    //return this._pedido ;
   }
 
   getPedidosHoy(){
     return this._http.get(this.url)
                 //.map(res => res.val());
                 .map(res => res.json());
-
   }
 }
