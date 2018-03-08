@@ -4,16 +4,20 @@
   <!--h2>{{cliente_nombre}}</h2>
   <p>{{cliente_fono}} {{cliente_fecha_registro}}</p   | async -->
 
-  <div *ngIf="!items">
+  <div *ngIf="items.length < 1">
       <p>Cargando ...</p>
   </div>
+  <div ng-hide="items.length">No items found</div>
+
   <div *ngIf="items">
         <div *ngFor="let item of items | async"  style="width:100%">
             <!--label style="width:5%"> {{item.proceso }} </label-->
 
-            <p style="margin-top: 25px;">{{item.$key}}</p>
+            <p style="margin-top: 25px;">{{item.$key}}
 
-            <table class="table table-striped">
+            </p>
+
+            <table class="table table-striped" >
               <thead>
                 <tr>
                   <th> <span style="" class="label label-info">Cliente  </span> </th>
@@ -38,7 +42,7 @@
                   <td colspan="2">
                      <div>
                        <strong>$   {{item.precio }}  {{item.total }} </strong>  <br>
-                       <span class="icon icon-user"></span> {{ item.fechaActualizacion | date :'shortTime' }}<br>
+                       <span class="icon icon-user"></span> {{ item.fechaCreacion | date :'shortTime' }}<br>
                        <span class="icon icon-home"></span> {{item.direccion }}
                      </div>
                  </td>

@@ -7,11 +7,11 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
-  selector : 'pedido-edit',
-  templateUrl : '../views/pedido-add.html'
+  selector : 'pedido-listo', // TODO: CREA PAGINA
+  templateUrl : '../views/pedido-delivery.html'
 })
 
-export class PedidoEditComponent{
+export class PedidoDeliveryComponent{
   public titulo: string;
   public pedido: Pedido;
   private _idPedido ;
@@ -20,10 +20,8 @@ export class PedidoEditComponent{
               private _route: ActivatedRoute,
               private _router: Router)
   {
-
-    this._route.params.subscribe(params => {
-      //console.log( params['idPedido'] );
-        this.titulo = 'Servicio Editar Pedido';
+     this._route.params.subscribe(params => {
+        this.titulo = 'Delivery';
         this.pedido = new Pedido(0,"","","",0);
         this.pedido.id =  params['idPedido'];
     });
@@ -31,16 +29,14 @@ export class PedidoEditComponent{
 
   ngOnInit()
   {
-     console.log("ngOnInit "+ this.pedido.id );
-     /*this._pedidoEditService.getPedidoById(this.pedido.id)
+     this._pedidoEditService.getPedidoById(this.pedido.id)
                     .subscribe(val => {
-                        console.log(val);
                         this.pedido.cliente = val.cliente;
                         this.pedido.direccion = val.direccion;
                         this.pedido.descripcion = val.descripcion;
                         this.pedido.total = val.total;
                         this.pedido.fono = val.fono;
-                    });*/
+                    });
   }
 
   onSubmit () {
@@ -50,10 +46,10 @@ export class PedidoEditComponent{
       this._router.navigate(['/clientes']);
   }
 
-  actualizarEstado2 () {
+  actualizarEstado3 () {
       ///let idPedido = this._route.snapshot.queryParams["idPedido"];
-      console.log( "Servicio Editar .actualizarEstado2()" + this.pedido.id);
-      this._pedidoEditService.updateEstado2(this.pedido.id);
+      console.log( "Servicio Editar .actualizarEstado3()" + this.pedido.id);
+      this._pedidoEditService.updateEstado3(this.pedido.id);
       this._router.navigate(['/clientes']);
   }
 }

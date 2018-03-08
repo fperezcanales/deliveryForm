@@ -20,7 +20,10 @@
 
                   <th  colspan="2">  {{item.cliente }} - <i class="fab fa-whatsapp"></i>
                     {{item.fono }} - Estado  {{item.estado }}
-                    <span class="label label-success" style="float: right;">  L  </span>
+
+                    <span class="label label-success" > Pedidio {{ item.fechaCreacion | date :'shortTime' }}  </span>
+                    <span class="label label-success" > Listo {{ item.fechaListo | date :'shortTime' }} </span>
+                    <span class="label label-success" > Fin {{ item.fechaFin | date :'shortTime' }} </span>    
                   </th>
 
                 </tr>
@@ -35,7 +38,8 @@
                   <td colspan="2">
                      <div>
                        <strong>$   {{item.precio }}  {{item.total }} </strong>  <br>
-                       <span class="icon icon-user"></span> {{ item.fechaActualizacion | date :'shortTime' }}<br>
+                       <span class="icon icon-user"></span> {{ item.fechaListo | date :'shortTime' }}<br>
+                       <span class="icon icon-user"></span> {{ item.fechaCreacion | date :'shortTime' }}<br>
                        <span class="icon icon-home"></span> {{item.direccion }}
                      </div>
                  </td>

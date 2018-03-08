@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
+import { Pedido } from '../models/pedido';
 
 @Injectable()
 export class PeticionesService {
@@ -19,22 +20,25 @@ export class PeticionesService {
     return 'Hola desde el servicio';
   }
 
-  update( body , idPedido )
-  {
-    const req = this._http.put( 'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' , {
-      cliente: body.cliente ,
-      descripcion: body.descripcion ,
-      direccion: body.direccion ,
-      fechaActualizacion: body.fechaActualizacion ,
-      fono: body.fono ,
-      total: body.total,
-      estado: 1
-    }).subscribe( res => {
-          console.log(res);
-        },err => {
-          console.log("Error occured");
-        }
-      );
+  update( body:Pedido , idPedido )
+  {   const sequence$ = this._http.get(
+              'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' )
+          .switchMap(course => {
+            /*course.cliente = body.cliente ;
+            course.descripcion = body.descripcion ;
+            course.direccion = body.direccion ;
+            course.fono = body.fono ;
+            course.total = body.total;
+            console.log(course);*/
+              return this._http.put(
+                  'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' ,
+                  course)
+          });
+          sequence$.subscribe(res => {
+                console.log(res);
+              },err => {
+                console.log( err );
+              });
   }
 
   updateEstado2(  idPedido )
@@ -42,6 +46,24 @@ export class PeticionesService {
           'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' )
       .switchMap(course => {
           course.estado = 2;
+          course.fechaListo = new Date();
+          return this._http.put(
+              'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' ,
+              course)
+      });
+      sequence$.subscribe(res => {
+            console.log(res);
+          },err => {
+            console.log( err );
+          });
+  }
+
+  updateEstado3(  idPedido )
+  {   const sequence$ = this._http.get(
+          'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' )
+      .switchMap(course => {
+          course.estado = 3;
+          course.fechaFin = new Date();
           return this._http.put(
               'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' ,
               course)

@@ -1,6 +1,10 @@
 export class Pedido {
 
-  public fechaActualizacion:Date;
+  //public fechaActualizacion:Date;
+  public fechaCreacion;
+  public fechaListo:Date;
+  public fechaFin:Date;
+
   public fono;
   public proceso;
 
@@ -11,6 +15,6 @@ export class Pedido {
     public descripcion: string,
     public total: number
   ){
-    this.fechaActualizacion = Date();
+    this.fechaCreacion = Date();
   }
 }

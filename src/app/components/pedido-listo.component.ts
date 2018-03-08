@@ -20,17 +20,11 @@ export class PedidoListoComponent{
               private _route: ActivatedRoute,
               private _router: Router)
   {
-
-    this.sub = this._route.params.subscribe(params => {
-      //console.log( params['idPedido'] );
-      this.titulo = 'ENVIO';
-      this.pedido = new Pedido(0,"","","",0);
-      alert(params['idPedido']);
-      this.pedido.id =  params['idPedido'];
-
+     this._route.params.subscribe(params => {
+        this.titulo = 'ENVIO';
+        this.pedido = new Pedido(0,"","","",0);
+        this.pedido.id =  params['idPedido'];
     });
-
-
   }
 
   ngOnInit()

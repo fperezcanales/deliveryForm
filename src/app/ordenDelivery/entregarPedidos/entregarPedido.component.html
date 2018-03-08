@@ -19,8 +19,13 @@
                   <th> <span style="" class="label label-info">Cliente  </span> </th>
 
                   <th  colspan="2">  {{item.cliente }} - <i class="fab fa-whatsapp"></i>
-                    {{item.fono }} - Estado  {{item.estado }}
-                    <span class="label label-success" style="float: right;">  L  </span>
+                    {{item.fono }}
+
+                    <span class="label label-success" > Pedidio {{ item.fechaCreacion | date :'shortTime' }}  </span>
+                    <span class="label label-success" > Listo {{ item.fechaListo | date :'shortTime' }} </span>
+
+                    <a style="float: right;width:5%" [routerLink]="['/pedido-delivery', item.$key ]"> Delivery <i class="fas fa-arrow-alt-circle-right"></i> </a>
+
                   </th>
 
                 </tr>
@@ -35,7 +40,6 @@
                   <td colspan="2">
                      <div>
                        <strong>$   {{item.precio }}  {{item.total }} </strong>  <br>
-                       <span class="icon icon-user"></span> {{ item.fechaActualizacion | date :'shortTime' }}<br>
                        <span class="icon icon-home"></span> {{item.direccion }}
                      </div>
                  </td>

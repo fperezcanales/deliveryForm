@@ -27,7 +27,7 @@ export class EntregarPedidoComponent{
 
   ngOnInit(){
     // Se ejecuta despues del constructor, podria llamar una fcc ajax
-    this.sub = this._route.params.subscribe(params => {
+    this._route.params.subscribe(params => {
       this._idEstado=  params['idEstado'];
       this.items = this._af.list('/pedidos' , {
                       query: {

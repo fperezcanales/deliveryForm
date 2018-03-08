@@ -2,22 +2,26 @@
   <p class="text-center">{{titulo}}</p>
 </h2>
 
+
 <!--nav class="navbar navbar-default"-->
-<div class="btn-group">
+<div class="btn-group" >
   <!--a [routerLink]="['/']" > / </a>
   <a [routerLink]="['/direcciones']" > direcciones </a>
   <a [routerLink]="['/enviarPedido']"> enviarPedido </a-->
 
-  <button class="btn"> <a [routerLink]="['/crear-pedido']"> Nuevo </a></button>
-  <button class="btn" >  <a [routerLink]="['/clientes']"> Pendientes </a></button>
-  <button class="btn" >  <a [routerLink]="['/listos/2']"> Por Entregar </a></button>
-  <button class="btn" >  <a [routerLink]="['/entregados/3']"> Entregados </a></button>
-
-  <button class="btn btn-primary"> <i class="fa fa-search">  Buscar </i>
-  </button>
-
-  <button class="btn"> <i class="icon icon-user">  </i>
-  </button>
+  <button class="btn btn-primary">  <a [routerLink]="['/crear-pedido']" style="color: white;"> Nuevo </a></button>
+  <button class="btn btn-primary" >  <a [routerLink]="['/clientes']" style="color: white;"> Pendientes </a></button>
+  <button class="btn btn-primary" >  <a [routerLink]="['/listos/2']" style="color: white;"> Listos </a></button>
+  <button class="btn btn-primary" >  <a [routerLink]="['/entregados/3']" style="color: white;"> Entregados </a></button>
+  <button class="btn btn-primary"> <i class="fa fa-search">  Buscar </i></button>
+  <button class="btn btn-primary"> <i class="icon icon-user">  </i></button>
 
 </div>
+
+
 <!--/nav-->
+<script>
+$(".btn-group > .btn").click(function(){
+    $(this).addClass("active").siblings().removeClass("active");
+});
+</script>

@@ -17,6 +17,7 @@ export class PedidoService {
 
   public item:Pedido;
 
+
   constructor(db: AngularFireDatabase) {
     console.log('constructor pedido.service.ts');
     this.itemsRef = db.list('/pedidos');//.valueChanges();
