@@ -42,8 +42,8 @@ export class PedidoService {
                    alert('  added successfully');
                   }, () => {
                    alert('Error while saving event')
-                  }).catch((err) => {
+                 })/*.catch((err) => {
                     alert(err)
-                  });
+                  })*/;
   }
 }

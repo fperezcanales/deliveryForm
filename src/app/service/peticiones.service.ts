@@ -21,8 +21,7 @@ export class PeticionesService {
   }
 
   update( body:Pedido , idPedido )
-  {   const sequence$ = this._http.get(
-              'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' )
+  {   const sequence$ = this._http.get<Pedido>('https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' )
           .switchMap(course => {
             course.cliente = body.cliente ;
             course.descripcion = body.descripcion ;
@@ -42,7 +41,7 @@ export class PeticionesService {
   }
 
   updateEstado2(  idPedido )
-  {   const sequence$ = this._http.get(
+  {   const sequence$ = this._http.get<Pedido>(
           'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' )
       .switchMap(course => {
           course.estado = 2;
@@ -59,7 +58,7 @@ export class PeticionesService {
   }
 
   updateEstado3(  idPedido )
-  {   const sequence$ = this._http.get(
+  {   const sequence$ = this._http.get<Pedido>(
           'https://deliveryform-c007a.firebaseio.com/pedidos/'+idPedido+'.json' )
       .switchMap(course => {
           course.estado = 3;
@@ -77,19 +76,19 @@ export class PeticionesService {
 
   getPedidoById( id )
   {
-      return this._http.get( this.url + id + '.json' )
-                .map( res => res );
+      return this._http.get<Pedido>( this.url + id + '.json' )
+                .map( res => {return res;} );
   }
 
   getPedidoEspecifico(id ){
-      return this._http.get(this.url)
+      return this._http.get<Pedido>(this.url)
                          .map(data => {
                             return data;
                           });
   }
 
   getPedidosHoy(){
-    return this._http.get(this.url)
+    return this._http.get<any>(this.url)
                 //.map(res => res.val());
                 .map(res => res.json());
   }

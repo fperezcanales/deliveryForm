@@ -4,9 +4,7 @@
   <!--h2>{{cliente_nombre}}</h2>
   <p>{{cliente_fono}} {{cliente_fecha_registro}}</p   | async -->
 
-  <div *ngIf="items.length < 1">
-      <p>Cargando ...</p>
-  </div>
+
 
   <div *ngIf="items">
         <div *ngFor="let item of items | async"  style="width:100%">

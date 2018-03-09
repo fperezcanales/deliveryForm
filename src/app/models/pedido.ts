@@ -7,6 +7,7 @@ export class Pedido {
 
   public fono;
   public proceso;
+  public estado: number;
 
   constructor (
     public id: number,
