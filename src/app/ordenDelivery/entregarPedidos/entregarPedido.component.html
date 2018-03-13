@@ -14,13 +14,13 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th> <span style="" class="label label-info">Cliente  </span> </th>
+                  <th> <span class="label label-info">Cliente  </span> </th>
 
                   <th  colspan="2">  {{item.cliente }} - <i class="fab fa-whatsapp"></i>
-                    {{item.fono }}
+                    {{item.fono }} <br>
 
-                    <span class="label label-warning" > Pedidio {{ item.fechaCreacion | date :'shortTime' }}  </span>
-                    <span class="label label-success" > Listo {{ item.fechaListo | date :'shortTime' }} </span>
+                    <span class="label label-warning" >  {{ item.fechaCreacion | date :'shortTime' }}  </span>
+                    <span class="label label-success" >  {{ item.fechaListo | date :'shortTime' }} </span>
 
                     <a style="float: right" [routerLink]="['/pedido-delivery', item.$key ]">
                       Delivery <i class="fas fa-arrow-alt-circle-right"></i>

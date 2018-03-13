@@ -17,11 +17,11 @@
                   <th> <span style="" class="label label-info">Cliente  </span> </th>
 
                   <th  colspan="2">  {{item.cliente }} - <i class="fab fa-whatsapp"></i>
-                    {{item.fono }}
+                    {{item.fono }} <br>
 
-                    <span class="label label-warning" > Pedidio {{ item.fechaCreacion | date :'shortTime' }}  </span>
-                    <span class="label label-success" > Listo {{ item.fechaListo | date :'shortTime' }} </span>
-                    <span class="label label-info" > Fin {{ item.fechaFin | date :'shortTime' }} </span>
+                    <span class="label label-warning" >  {{ item.fechaCreacion | date :'shortTime' }}  </span>
+                    <span class="label label-success" >  {{ item.fechaListo | date :'shortTime' }} </span>
+                    <span class="label label-info" >  {{ item.fechaFin | date :'shortTime' }} </span>
                   </th>
 
                 </tr>

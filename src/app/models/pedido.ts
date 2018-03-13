@@ -7,7 +7,10 @@ export class Pedido {
 
   public fono;
   public proceso;
-  public estado: number;
+  public estado: number; // 1: Pendiente, 2: Listo, 3: Finalizado
+
+  public tipoPago: number; // 1: Efectivo, 2: Tarjeta Debito, 3: Tarjeta Credito, 4: Otro
+  public tipoEntrega:number; //1: Delivery, 2: Retiro Local, 3: Servir
 
   constructor (
     public id: number,

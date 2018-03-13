@@ -26,27 +26,30 @@ export class ClienteComponent{
 
   }
 
-  ngOnInit(){
-    // Se ejecuta despues del constructor, podria llamar una fcc ajax
+  ngOnInit()
+  {
+    var today = new Date(); today.setHours(0,0,0,0);
+
     this._route.params.subscribe(params => {
       this._idEstado=  params['idEstado'];
 
       this.items = this._af.list('/pedidos' , {
                       query: {
-                        orderByChild: 'estado',
-                        equalTo: 1 // this._idEstado //this._estadoId
-                      }});
+                        //orderByChild: 'estado',
+                        //equalTo: 1 // this._idEstado //this._estadoId
+                        orderByChild: 'fechaCreacion',
+                        startAt: {value: today.toString(), key: 'fechaCreacion'},
+                        limitToFirst: 10
+                      }}).map((items)=> {
+                          let filteredUser:FirebaseListObservable<any[]>  = new Array();
+                          for (let item of items) {
+                            if(item.estado == 1){
+                              filteredUser.push(item);
+                            }
+                          }
+                          return filteredUser;
+                      });
     });
 
-    //this.getPedidosPorEstado(this._idEstado);
-  }
-
-  getPedidosPorEstado( idEstado){
-    alert('getPedidosPorEstado '+idEstado);
-    this.items = this._af.list('/pedidos' , {
-                    query: {
-                      orderByChild: 'estado',
-                      equalTo: idEstado // this._idEstado //this._estadoId
-                    }});
   }
 }

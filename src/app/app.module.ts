@@ -33,6 +33,7 @@ import { PedidoAddComponent } from './components/pedido-add.component';
 import { PedidoEditComponent } from './components/pedido-edit.component';
 import { PedidoListoComponent } from './components/pedido-listo.component';
 import { PedidoDeliveryComponent } from './components/pedido-delivery.component';
+import { ReporteVentaComponent } from './components/reporte-venta.component';
 
 import { PedidoService } from './services/pedido.service';
 import { PedidoEditService } from './services/pedidoEdit.service';
@@ -42,7 +43,8 @@ import { PedidoEditService } from './services/pedidoEdit.service';
     AppComponent, MenuNavComponent, HomeComponent,
                     EnviarPedidoComponent , EntregarPedidoComponent,
                     ClienteComponent, DireccionesComponent, OrdenDeliveryComponent,
-                    PedidoAddComponent, PedidoEditComponent, PedidoListoComponent, PedidoDeliveryComponent
+                    PedidoAddComponent, PedidoEditComponent, PedidoListoComponent, PedidoDeliveryComponent,
+                    ReporteVentaComponent
   ],
   imports: [
     BrowserModule, FormsModule, routing, HttpModule, HttpClientModule,

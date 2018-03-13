@@ -14,6 +14,7 @@ import { PedidoAddComponent } from './components/pedido-add.component';
 import { PedidoEditComponent } from './components/pedido-edit.component';
 import { PedidoListoComponent } from './components/pedido-listo.component';
 import { PedidoDeliveryComponent } from './components/pedido-delivery.component';
+import { ReporteVentaComponent } from './components/reporte-venta.component';
 
 const appRoutes : Routes = [
   {path: '', component: HomeComponent},
@@ -27,7 +28,7 @@ const appRoutes : Routes = [
   { path: 'pedido-edit/:idPedido', component: PedidoEditComponent },
   { path: 'pedido-listo/:idPedido', component: PedidoListoComponent },
   { path: 'pedido-delivery/:idPedido', component: PedidoDeliveryComponent },
-  { path: 'direcciones', component: DireccionesComponent },
+  { path: 'reporte-venta', component: ReporteVentaComponent },
   {path: '**', component: OrdenDeliveryComponent}
 ];
 

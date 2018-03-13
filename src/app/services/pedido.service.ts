@@ -36,10 +36,9 @@ export class PedidoService {
 
   addPedido(pedido: Pedido )
   {
-    pedido.estado = 1; // por defecto
 
     this.itemsRef.push(   pedido ).then((item) => {
-                   alert('  added successfully');
+                   alert('Hemos registrado tu Pedido');
                   }, () => {
                    alert('Error while saving event')
                  })/*.catch((err) => {
