@@ -39,6 +39,16 @@
             [(ngModel)]="pedido.total" required pattern="[0-9]+" placeholder="Total"/>
 
       <span *ngIf="!total.valid && total.touched">Total es obligatorio</span><br>
+
+      <label>Tipo Pago</label><br>
+      <select class="selectpicker" [(ngModel)]="pedido.tipoPago" name="tipoPago">
+        <!-- 1: Por Pagar, 2: Caja/Efectivo, 3: Caja/Tarjeta, 4: Otro-->
+        <option value="-1">Seleccione...</option>
+        <option value="1">Pago al Entregar</option>
+        <option value="2">Pago en Caja/Efectivo</option>
+        <option value="3">Pago en Caja/Tarjeta</option>
+        <option value="4">Otro</option>
+      </select>      <br>
       <br/>
       <input type="submit" value={{titulo}} class="btn btn-success"
               [disabled]="!formPedidoAddServir.form.valid"/>
@@ -81,7 +91,18 @@
             [(ngModel)]="pedido.total" required pattern="[0-9]+" placeholder="Total"/>
 
       <span *ngIf="!total.valid && total.touched">Total es obligatorio</span><br>
-      <br/>
+
+      <label>Tipo Pago</label><br>
+      <select class="selectpicker" [(ngModel)]="pedido.tipoPago" name="tipoPago">
+        <!-- 1: Por Pagar, 2: Caja/Efectivo, 3: Caja/Tarjeta, 4: Otro-->
+        <option value="-1">Seleccione...</option>
+        <option value="1">Pago al Entregar</option>
+        <option value="2">Pago en Caja/Efectivo</option>
+        <option value="3">Pago en Caja/Tarjeta</option>
+        <option value="4">Otro</option>
+      </select>
+
+      <br/><br/>
       <input type="submit" value={{titulo}} class="btn btn-success"
               [disabled]="!formPedidoAdd.form.valid"/>
 
@@ -119,13 +140,15 @@
       <span *ngIf="!total.valid && total.touched">Total es obligatorio</span><br>
 
       <label>Tipo Pago</label><br>
-      <select class="selectpicker">
-        <option>Seleccione...</option>
-        <option>Tarjeta Credito / Debito</option>
-        <option>Efectivo</option>
-        <option>Junaeb</option>
-        <option>Otros</option>
+      <select class="selectpicker" [(ngModel)]="pedido.tipoPago"  name="tipoPago">
+        <!-- 1: Por Pagar, 2: Caja/Efectivo, 3: Caja/Tarjeta, 4: Otro-->
+        <option value="-1">Seleccione...</option>
+        <option value='1'>Por pagar</option>
+        <option value='2'>Pagado</option>
+        <option value='4'>Otro</option>
       </select>
+
+
       <p></p>
       <br/>
       <input type="submit" value={{titulo}} class="btn btn-success"

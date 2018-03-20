@@ -29,7 +29,8 @@ export class PedidoAddComponent{
   onSubmit () {
       this.pedido.tipoEntrega = 1; //Delivery
       this.pedido.estado = 1; // Pendiente
-
+      console.log(this.pedido);
+      
       this._pedidoService.addPedido(this.pedido);
       this._router.navigate(['/clientes']);
   }

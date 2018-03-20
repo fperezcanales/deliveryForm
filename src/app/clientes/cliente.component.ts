@@ -14,16 +14,12 @@ export class ClienteComponent{
   public cliente_nombre = 'fernando';
   public cliente_fono = '987654321';
   private _idEstado:number;
-  //public cliente_fecha_registro;
-  //public d = (new Date() - 1);
-  //d.setDate(d.getDate()-1);
 
-  items: FirebaseListObservable<any[]>;
+  items; //: FirebaseListObservable<any[]>;
 
   constructor(private _af: AngularFireDatabase,
               private _route: ActivatedRoute)
   {
-
   }
 
   ngOnInit()
@@ -41,13 +37,12 @@ export class ClienteComponent{
                         startAt: {value: today.toString(), key: 'fechaCreacion'},
                         limitToFirst: 10
                       }}).map((items)=> {
-                          let filteredUser:FirebaseListObservable<any[]>  = new Array();
-                          for (let item of items) {
-                            if(item.estado == 1){
-                              filteredUser.push(item);
-                            }
-                          }
-                          return filteredUser;
+                          items = items.filter(function(item) {
+                              if(item.estado == 1){
+                                return item ;
+                              }
+                          })
+                          return items;
                       });
     });
 
