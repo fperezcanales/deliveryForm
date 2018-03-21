@@ -35,7 +35,7 @@ export class ClienteComponent{
                         //equalTo: 1 // this._idEstado //this._estadoId
                         orderByChild: 'fechaCreacion',
                         startAt: {value: today.toString(), key: 'fechaCreacion'},
-                        limitToFirst: 10
+                        limitToFirst: 30
                       }}).map((items)=> {
                           items = items.filter(function(item) {
                               if(item.estado == 1){

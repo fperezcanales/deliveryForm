@@ -41,23 +41,22 @@
                   </td>
                   <td colspan="2">
                     <p style="font-size:11px;">
-                      <span class="icon icon-home"></span>
-                      {{item.direccion }} {{item.direccion }}.
+                      <span class="fas fa-truck" *ngIf="item.tipoEntrega == '1'"></span>
+                      <span class="icon icon-home" *ngIf="item.tipoEntrega != '1'"></span>
+
+                      {{item.direccion }}.
+
                       <strong>{{item.cliente }}</strong>
                       <i class="fab fa-whatsapp"></i>
                       {{item.fono }}
+
+                      <!-- 0: Por Pagar, 1: Efectivo, 2: Tarjeta Debito, 3: Tarjeta Credito, 4: Otro-->
+                      <img *ngIf="item.tipoPago == '1'"  width="42" style="float: right;"
+                            src="https://drive.google.com/uc?id=1Ayt6ZX7FuD3zzj0x-kvl74-NvKDHjjxz"/>
+
+                      <img *ngIf="item.tipoPago != '1'"  width="42" style="float: right;"
+                            src="https://drive.google.com/uc?id=1z723fC8xwzSLSDsPOZc8eBRjQ41L3V8x"/>
                     </p>
-
-                    <!-- 0: Por Pagar, 1: Efectivo, 2: Tarjeta Debito, 3: Tarjeta Credito, 4: Otro-->
-                    <div *ngIf="item.tipoPago == '1'"> <span class="label label-danger" style="float: right;">Por Pagar</span>
-                    </div>
-                    <div *ngIf="item.tipoPago != '1'"> <span class="label label-info" style="float: right;">Pagado</span>
-                    </div>
-
-                    <!--1: Delivery, 2: Retiro Local, 3: Servir-->
-                    <div *ngIf="item.tipoEntrega == '1'"> <span class="label label-danger" style="float: right;">Para Entregar</span></div>
-                    <div *ngIf="item.tipoEntrega == '2'"> <span class="label label-info" style="float: right;">Retiro Local</span></div>
-                    <div *ngIf="item.tipoEntrega == '3'"> <span class="label label-info" style="float: right;">Para Servir</span></div>
                  </td>
                </tr>
             </table>

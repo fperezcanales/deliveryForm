@@ -56,4 +56,20 @@ export class PedidoEditComponent{
       this._pedidoEditService.updateEstado2(this.pedido.id);
       this._router.navigate(['/clientes']);
   }
+
+  onSubmitServir () {
+      ///let idPedido = this._route.snapshot.queryParams["idPedido"];
+      console.log( "Servicio Editar .update()" + this.pedido.id);
+      this._pedidoEditService.update(this.pedido, this.pedido.id);
+      this._router.navigate(['/clientes']);
+  }
+
+
+  onSubmitRetiroLocal () {
+      ///let idPedido = this._route.snapshot.queryParams["idPedido"];
+      console.log( "Servicio Editar .update()" + this.pedido.id);
+      this._pedidoEditService.update(this.pedido, this.pedido.id);
+      this._router.navigate(['/clientes']);
+  }
+
 }

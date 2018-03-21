@@ -10,13 +10,16 @@
 
 
 <ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#home"><i class="fas fa-coffee"></i> Servir</a></li>
-  <li><a data-toggle="tab" href="#menu1"><i class="fas fa-truck"></i> Delivery</a></li>
-  <li><a data-toggle="tab" href="#menu2"><i class="fas fa-shopping-cart"></i> Retiro Local</a></li>
+  <li>
+    <a data-toggle="tab" href="#home"><i class="fas fa-coffee"></i> Servir</a></li>
+  <li class="active">
+    <a data-toggle="tab" href="#menu1"><i class="fas fa-truck"></i> Delivery</a></li>
+  <li>
+    <a data-toggle="tab" href="#menu2"><i class="fas fa-shopping-cart"></i> Retiro Local</a></li>
 </ul>
 
 <div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
+  <div id="home" class="tab-pane fade">
     <!-- Servir -->
     <form #formPedidoAddServir="ngForm" id="formPedido" class="form-horizontal"
           (ngSubmit)="onSubmitServir()">
@@ -56,7 +59,7 @@
     </form>
   </div>
 
-  <div id="menu1" class="tab-pane fade">
+  <div id="menu1" class="tab-pane fade in active">
 
     <form #formPedidoAdd="ngForm" id="formPedido" class="form-horizontal"
           (ngSubmit)="onSubmit()">
