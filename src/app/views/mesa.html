@@ -1,0 +1,132 @@
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Menu Delicias</h4>
+        </div>
+        <div class="modal-body">
+
+		  <div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+				<h4 class="panel-title">
+				  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Promociones</a>
+				</h4>
+			  </div>
+			  <div id="collapse1" class="panel-collapse collapse in">
+				<div class="panel-body">
+					<div>Promo 1</div>
+					<div>Promo 2</div>
+					<div>Promo 3</div>
+					<div>Promo 4</div>
+				</div>
+			  </div>
+			</div>
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+				<h4 class="panel-title">
+				  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">bebidas</a>
+				</h4>
+			  </div>
+			  <div id="collapse2" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div>Bebida 3 L</div>
+					<div>Bebida 1.5 L</div>
+					<div>Bebida lata</div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<button  ng-click="dibujar()">Click me</button>
+
+  <div class="container" style="width:100%" onclick="dibujar();">
+
+    <div class="row">
+      <!-- div class="col-lg-4"  >
+
+		<h3 style="background-color:#aab">Cabecera
+        <i style="margin-left: 5px;" class="fa fa-bars" data-toggle="modal" data-target="#myModal"></i>
+    </h3>
+
+		<ul>
+		  <li>Fecha  : 12-12-2018 12:00 PM</li>
+		  <li>Estado : En servicio</li>
+		  <li>Mesero : Juan</li>
+		</ul>
+
+		<h3 style="background-color:#aab">Detalle
+			<span style="float: right;" class="glyphicon glyphicon-plus-sign"></span>
+		</h3>
+
+		<div>
+			<span class="glyphicon glyphicon-pencil"> 2 Pizzas Mediana más Bebida 1,5 Lt </span>
+			<span style="float: right;"><strong > $ 21.990</strong></span>
+		</div>
+		<div>
+			<span class="glyphicon glyphicon-pencil"> 2 Pizzas Mediana más Bebida 1,5 Lt </span>
+			<span style="float: right;"><strong > $ 21.990</strong></span>
+		</div>
+
+		<h4 style="background-color:#aaf">
+			Total
+			<span style="float: right;"><strong > $ 221.990</strong></span>
+		</h4>
+
+		<h3 style="background-color:#aac">Pie
+			<span style="float: right;" class="glyphicon glyphicon-cloud"></span>
+		</h3>
+		<ul>
+		  <li>Coffee</li>
+		  <li>Tea</li>
+		  <li>Milk</li>
+		</ul>
+
+  </div -->
+
+      <div class="col-lg-8"  style="background-color:#ccc">
+        <h1>Columna 3</h1>
+        <p>Esto es una prueba de bootstrap.</p>
+
+		<div id="divA"></div>
+
+      </div>
+
+    </div>
+    <hr>
+  </div>
+
+  <script type="text/javascript">
+
+    function dibujar() {
+    for(var i=0;i<20;i++){
+      $( "#divA" ).append(
+          '<span style="margin-left: 25px;" >'+
+            '<label  style="margin-top: 25px;" class="checkbox-inline">'+
+            '	<input type="checkbox"  data-toggle="toggle" data-width="100" data-height="75"/>  Mesa <br/>'+
+                '<i style="margin-left: 5px;" class="fa fa-car"></i>'+
+                '<i style="margin-left: 5px;" class="fa fa-file"></i>'+
+                '<i style="margin-left: 5px;" class="fa fa-bars" data-toggle="modal" data-target="#myModal"></i>'+
+            '</label>'+
+
+          '</span>'
+       )
+    }
+    }
+
+  </script>

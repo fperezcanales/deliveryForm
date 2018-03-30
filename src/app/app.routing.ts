@@ -15,6 +15,7 @@ import { PedidoEditComponent } from './components/pedido-edit.component';
 import { PedidoListoComponent } from './components/pedido-listo.component';
 import { PedidoDeliveryComponent } from './components/pedido-delivery.component';
 import { ReporteVentaComponent } from './components/reporte-venta.component';
+import { MesasComponent } from './components/mesas.component';
 
 const appRoutes : Routes = [
   {path: '', component: HomeComponent},
@@ -29,6 +30,8 @@ const appRoutes : Routes = [
   { path: 'pedido-listo/:idPedido', component: PedidoListoComponent },
   { path: 'pedido-delivery/:idPedido', component: PedidoDeliveryComponent },
   { path: 'reporte-venta', component: ReporteVentaComponent },
+
+  { path: 'mesas', component: MesasComponent },  
   {path: '**', component: OrdenDeliveryComponent}
 ];
 
